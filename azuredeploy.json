@@ -1,0 +1,214 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [
+    {
+        "name": "HTL-RG1",
+        "type": "Microsoft.Resources/resourceGroups",
+        "apiVersion": "2019-10-01",
+        "location": "uksouth",
+        "tags": {},
+        "properties": {
+            }
+    },
+    {
+        "type": "Microsoft.Storage/storageAccounts",
+        "apiVersion": "2019-04-01",
+        "name": "HTL-SA1",
+        "location": "uksouth",
+        "sku": {
+            "name": "Standard_LRS"
+        },
+        "kind": "StorageV2",
+        "properties": {
+            "supportsHttpsTrafficOnly": true
+        }
+    },
+        {
+            "name": "string",
+            "type": "Microsoft.Network/virtualNetworks",
+            "apiVersion": "2020-05-01",
+            "location": "",
+            "tags": {},
+            "properties": {
+                "addressSpace": {
+                    "addressPrefixes": [
+                        "string"
+                    ]
+                },
+                "dhcpOptions": {
+                    "dnsServers": [
+                       "string"
+                    ]
+                },
+                "subnets": [
+                    {
+                        "id": "string",
+                        "properties": {
+                            "addressPrefix": "string",
+                            "addressPrefixes": [
+                                "string"
+                            ],
+                            "networkSecurityGroup": {
+                                "id": "string",
+                                "location": "string",
+                                "tags": {},
+                                "properties": {
+                                    "securityRules": [
+                                        {
+                                            "id": "string",
+                                            "properties": {
+                                                "description": "string",
+                                                "protocol": "string",
+                                                "sourcePortRange": "string",
+                                                "destinationPortRange": "string",
+                                                "sourceAddressPrefix": "string",
+                                                "sourceAddressPrefixes": [
+                                                    "string"
+                                                ],
+                                                "sourceApplicationSecurityGroups": [
+                                                    {
+                                                        "id": "string",
+                                                        "location": "string",
+                                                        "tags": {},
+                                                        "properties": {}
+                                                    }
+                                                ],
+                                                "destinationAddressPrefix": "string",
+                                                "destinationAddressPrefixes": [
+                                                    "string"
+                                                ],
+                                                "destinationApplicationSecurityGroups": [
+                                                    {
+                                                        "id": "string",
+                                                        "location": "string",
+                                                        "tags": {},
+                                                        "properties": {}
+                                                    }
+                                                ],
+                                                "sourcePortRanges": [
+                                                    "string"
+                                                ],
+                                                "destinationPortRanges": [
+                                                    "string"
+                                                ],
+                                                "access": "string",
+                                                "priority": "integer",
+                                                "direction": "string"
+                                            },
+                                            "name": "string"
+                                        }
+                                    ]
+                                }
+                            },
+                            "routeTable": {
+                                "id": "string",
+                                "location": "string",
+                                "tags": {},
+                                "properties": {
+                                    "routes": [
+                                        {
+                                            "id": "string",
+                                            "properties": {
+                                                "addressPrefix": "string",
+                                                "nextHopType": "string",
+                                                "nextHopIpAddress": "string"
+                                            },
+                                            "name": "string"
+                                        }
+                                    ],
+                                    "disableBgpRoutePropagation": "boolean"
+                                }
+                            },
+                            "natGateway": {
+                                "id": "string"
+                            },
+                            "serviceEndpoints": [
+                                {
+                                    "service": "string",
+                                    "locations": [
+                                        "string"
+                                    ]
+                                }
+                            ],
+                            "serviceEndpointPolicies": [
+                                {
+                                    "id": "string",
+                                    "location": "string",
+                                    "tags": {},
+                                    "properties": {
+                                        "serviceEndpointPolicyDefinitions": [
+                                            {
+                                                "id": "string",
+                                                "properties": {
+                                                    "description": "string",
+                                                    "service": "string",
+                                                    "serviceResources": [
+                                                        "string"
+                                                    ]
+                                                },
+                                                "name": "string"
+                                            }
+                                        ]
+                                    }
+                                }
+                            ],
+                            "ipAllocations": [
+                                {
+                                    "id": "string"
+                                }
+                            ],
+                            "delegations": [
+                                {
+                                    "id": "string",
+                                    "properties": {
+                                        "serviceName": "string"
+                                    },
+                                    "name": "string"
+                                }
+                            ],
+                            "privateEndpointNetworkPolicies": "string",
+                            "privateLinkServiceNetworkPolicies": "string"
+                        },
+                        "name": "string"
+                    }
+                ],
+                "virtualNetworkPeerings": [
+                    {
+                        "id": "string",
+                        "properties": {
+                            "allowVirtualNetworkAccess": "boolean",
+                            "allowForwardedTraffic": "boolean",
+                            "allowGatewayTransit": "boolean",
+                            "useRemoteGateways": "boolean",
+                            "remoteVirtualNetwork": {
+                                "id": "string"
+                            },
+                            "remoteAddressSpace": {
+                                "addressPrefixes": [
+                                    "string"
+                                ]
+                            },
+                            "peeringState": "string"
+                        },
+                        "name": "string"
+                    }
+                ],
+                "enableDdosProtection": "boolean",
+                "enableVmProtection": "boolean",
+                "ddosProtectionPlan": {
+                    "id": "string"
+                },
+                "bgpCommunities": {
+                    "virtualNetworkCommunity": "string"
+                },
+                "ipAllocations": [
+                    {
+                        "id": "string"
+                    }
+                ]
+            },
+            "resources": []
+        }
+    ]
+}
