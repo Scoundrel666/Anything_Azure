@@ -1,0 +1,23 @@
+Perf
+| where CounterName startswith "% Free"
+| where (Computer hasprefix "brmfls01" and InstanceName hasprefix "E:") or
+    (Computer hasprefix "brmmewsec01" and InstanceName hasprefix "E:") or
+    (Computer hasprefix "ldnenefls01" and (InstanceName hasprefix "E:" or InstanceName hasprefix "H:")) or
+    (Computer hasprefix "ldnmewfls01" and (InstanceName hasprefix "F:" or InstanceName hasprefix "G:")) or
+    (Computer hasprefix "ldnmewfls02" and InstanceName hasprefix "G:") or
+    (Computer hasprefix "ldnmewfls03" and InstanceName hasprefix "H:") or
+    (Computer hasprefix "ldnmewsec01" and (InstanceName hasprefix "F:" or InstanceName hasprefix "G:" or InstanceName hasprefix "M:")) or
+    (Computer hasprefix "ldnmhcfls01" and (InstanceName hasprefix "E:" or InstanceName hasprefix "G:")) or
+    (Computer hasprefix "ldnmrmfls01-new" and InstanceName hasprefix "E:") or
+    (Computer hasprefix "ldnmrmfls02-new" and (InstanceName hasprefix "E:" or InstanceName hasprefix "F:")) or
+    (Computer hasprefix "ldnmrmfls03-new" and InstanceName hasprefix "E:") or
+    (Computer hasprefix "manmewfls01" and InstanceName hasprefix "E:") or
+    (Computer hasprefix "manmewfls06" and (InstanceName hasprefix "E:" or InstanceName hasprefix "F:" or InstanceName hasprefix "J:")) or
+    (Computer hasprefix "manmewsec01" and InstanceName hasprefix "F:") or
+    (Computer hasprefix "manmomfls01" and InstanceName hasprefix "E:")
+| where CounterValue >= 2
+| where CounterValue < 5
+| extend PercentageFree = CounterValue
+| extend Drive = InstanceName
+| project TimeGenerated, Computer, Drive, PercentageFree
+| project-reorder TimeGenerated, Computer, Drive, PercentageFree
